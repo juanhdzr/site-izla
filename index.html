@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IZLA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+		font-family: 'Noto Sans', sans-serif;
+    }
+
+	.navbar {
+		background-color: #ffffff;
+		box-shadow: 0 2px 4px rgba(0,0,0,1);
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+	}
+
+	.navbar-brand img {
+		height: 45px; /* Tamaño del logo */
+		/* border-radius: 50%; // Opcional: redondear logo */
+	}
+
+	.nav-link {
+		font-weight: 600;
+		color: #0d3b66 !important; /* Azul oscuro */
+		transition: color 0.3s ease;
+		padding: 0.5rem 1rem;
+		border-radius: 0.375rem;
+	}
+
+	.nav-link:hover {
+		color: #007bff !important; /* Azul vibrante al pasar el mouse */
+		background-color: #d6eaff; /* Azul claro suave */
+	}
+
+	.nav-link.active {
+		color: #007bff !important; /* Azul activo */
+		background-color: #d6eaff;
+	}
+	.hero-section {
+        background-image: url('imagenes/fondo3.jpg'); /* Abstract background generated earlier */
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+        padding-top: 56px; /* Compensate for fixed navbar */
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+	.hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0); /* Dark overlay for text readability */
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for content */
+        border-radius: 15px;
+    }
+    .hero {
+      background: url('imagenes/fondo3.jpg') no-repeat center center/cover;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,1);
+	  opacity: 1;
+      padding: 70px 0;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+	.product-card img {
+		max-width: 250px;
+		height: 250px;
+		/*object-fit: contain;*/
+		margin-bottom: 1.5rem;
+		border-radius: 10px;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+    .product-card:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      transform: scale(1.02);
+    }
+	.product-card .subtitle {
+        color: #28a745;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+	.contact-form {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        padding: 3rem;
+        border: 1px solid #e9ecef;
+    }
+    .contact-form .form-label {
+        font-weight: 600;
+        color: #495057;
+    }
+    .contact-form .form-control {
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ced4da;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-form .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    }
+	.btn-primary-custom {
+        background-color: #4388ee; /* Green button */
+        border-color: #4388ee;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    }
+    .btn-primary-custom:hover {
+        background-color: #2169d2; /* Darker blue on hover */
+        border-color: #1e7e34;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0,0,0,.15);
+    }
+	.about-us-card {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        padding: 3rem;
+        margin-bottom: 2rem;
+        border: 1px solid #e9ecef;
+    }
+    .about-us-card h3 {
+        color: #28a745;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    .about-us-card p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #495057;
+    }
+	.section-padding {
+            padding: 5rem 0;
+        }
+	section[id] {
+		scroll-margin-top: 40px; /* Ajusta según la altura real del navbar */
+	}
+	footer .social-icons a {
+        color: #adb5bd;
+        transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+        color: #ffffff;
+    }
+	/* Modal specific styles */
+    .modal-content {
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    }
+    .modal-header {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .modal-title {
+        font-weight: 700;
+        color: #075fe1;
+    }
+    .modal-body {
+        color: #495057;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    .modal-footer {
+        border-top: none;
+    }
+    .btn-close {
+        color: #6c757d;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+    .btn-close:hover {
+        opacity: 1;
+    }
+	.product-card {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #e9ecef;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		padding: 20px;
+		transition: all 0.3s ease;
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    }
+    .product-card img {
+       /* max-width: 250px;
+        height: 250px;*/
+        object-fit: contain;
+        margin-bottom: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .product-card h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #343a40;
+        margin-bottom: 0.5rem;
+    }
+    .product-card .subtitle {
+        color: #075fe1;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .product-card p {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="imagenes\izla_logo.png" alt="IZLA Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Inicio</a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section text-center">
+    <div class="container ">
+      <!-- <h1 class="display-4 fw-bold">IZLA</h1> -->
+	  <img src="imagenes\izla_logo.png" alt="IZLA" class="img-fluid mb-3 rounded" style="width:250px ">
+      <p class="lead" style="color: black;">Especialistas en limpieza técnica: desengrasamos, desinfectamos, desincrustamos y más.</p>
+      <a href="#productos" class="btn btn-primary-custom btn-lg" style="font-sizs:100%">Descubre nuestros productos</a>
+    </div>
+  </section>
+
+  <!-- Misión y Visión -->
+  <section id="quienes-somos" class="section-padding py-5 bg-light">
+    <div class="container">
+		<h2 class="text-center mb-5 display-5 fw-bold">Quiénes Somos</h2>
+      <div class="row text-center">
+		<div class="about-us-card">
+          <h2 class="section-title">Misión</h2>
+          <p style="text-align: justify;">Transformar la vida de las personas a través de suplementos alimenticios puros y potentes, obtenidos de la naturaleza. Nos dedicamos a educar a nuestros consumidores sobre los beneficios de una nutrición consciente y a empoderarlos para tomar el control de su bienestar..</p>
+        </div>
+
+      </div>
+	  <div class="row text-center">
+        <div class="about-us-card">
+          <h2 class="section-title">Visión</h2>
+          <p style="text-align: justify;">Consolidarnos como la marca de suplementos alimenticios más confiable y de mayor calidad en el mercado, transformando la salud de nuestros consumidores a través de productos 100% naturales y científicamente respaldados.	</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="section-padding py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 display-5 fw-bold">Nuestros Productos</h2>
+
+    <!-- DESENGRASANTES -->
+    <div class="mb-4">
+      <h3 class="text-primary mb-3">Desengrasantes</h3>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/iska_color.png" alt="JS-10" class="img-fluid mb-3 rounded" >
+            <h5 class="subtitle">JS-10</h5>
+            <p class="subtitle">Desengrasante alcalino sin espuma.</p>
+            <p style="text-align: justify;">Desengrasante alcalino sin espuma, formulado para limpiar y desengrasar todo tipo de superficie a tratar como son: paredes, pisos, mesas de plástico, tuberías de plástico, maquina lava jaulas, salas de ordeña y/o equipos que no requieran espuma, entre otros.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal">Ver Detalles</button>
+          </div>
+        </div>
+		<div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/mr1000_plus.png" alt="MR-1000 PLUS" class="img-fluid mb-3 rounded" >
+            <h5 class="subtitle">MR-1000 PLUS</h5>
+            <p class="subtitle">Desinfectante alcalino</p>
+            <p style="text-align: justify;">Desinfectante alcalino clorado a base de clorógenos de alta calidad, estable con gran poder desinfectante y deorizante.Es altamente eficaz contra bacterias, algas, hongos y otros microorganismos peligrosos causantes de diferentes enfermedades.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal">Ver Detalles</button>
+          </div>
+        </div>
+		<div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/foam_flush.png" alt="FOAM FLUSH" class="img-fluid mb-3 rounded" >
+            <h5 class="subtitle">FOAM FLUSH</h5>
+            <p class="subtitle">Limpiador desengrasante</p>
+            <p style="text-align: justify;">Limpiador, desengrasante, desinfectante y deorizante, es biodegradable de amplio espectro germicida, no tóxico, no corrosivo, no irritante, no muta génico y no carcinogénico Limpia, desengrasa, desinfecta y deodoriza, todo en un solo paso sin necesidad de enjuagarse 	.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal">Ver Detalles</button>
+          </div>
+        </div>
+        <!-- Agrega más productos aquí -->
+      </div>
+	  <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/iska_color.png" alt="MR-100 PLUS" class="img-fluid mb-3 rounded" >
+            <h5 class="subtitle">MR-100 PLUS</h5>
+            <p class="subtitle">Limpiador de alta concentración</p>
+            <!--<p style="text-align: justify;">Limpiador de alta concentración, biodegradable, diseñado para trabajar sobre equipos y superficies lisas o rígidas, de plástico y metálicas. Ayuda a prevenir el deterioro de estructuras y superficies metálicas a consecuencia del óxido y corrosión dejándolas con su apariencia.</p>-->
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <!-- Agrega más productos aquí -->
+      </div>
+    </div>
+
+    <!-- DESINCRUSTANTES -->
+    <div class="mb-4">
+      <h3 class="text-primary mb-3">Desincrustantes</h3>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/iska_color.svg" alt="Desincrustante Pro" class="img-fluid mb-3 rounded">
+            <h5>Desincrustante Pro</h5>
+            <p class="subtitle">Elimina sarro y residuos minerales</p>
+            <p style="text-align: justify;">Ideal para superficies con acumulación de cal y sarro. Limpieza profunda y segura.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desincrustanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESINFECTANTES -->
+    <div class="mb-4">
+      <h3 class="text-primary mb-3">Desinfectantes</h3>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/desinfectante1.svg" alt="Desinfectante Plus" class="img-fluid mb-3 rounded">
+            <h5>Desinfectante Plus</h5>
+            <p class="subtitle">Desinfección al 99.9%</p>
+            <p style="text-align: justify;">Elimina virus, bacterias y hongos en superficies de alto contacto. Seguro para uso doméstico e industrial.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agrega más secciones si necesitas: Deodorizantes, Blanqueadores, Limpiadores -->
+    
+  </div>
+</section>
+<!--
+  <section id="productos" class="section-padding py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 display-5 fw-bold">Nuestros Productos</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card ">
+            <img src="imagenes\BienestarDiario.svg" alt="Bienestar Diario" class="img-fluid mb-3 rounded">
+            <h5>Bienestar Diario</h5>
+			<p class="subtitle">Multivitamínico con Minerales y Probióticos</p>
+            <p style="text-align: justify;">¡Dale a tu cuerpo el impulso que necesita con Bienestar Diario de IZLA. Nuestra fórmula completa combina vitaminas, minerales y probióticos de alta calidad para apoyar tu energía, sistema inmunológico y salud digestiva.</p>
+			<button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#bienestarDiarioModal">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes\EnergiaPura.svg" alt="Energía Pura" class="img-fluid mb-3 rounded">
+            <h5>Energía Pura</h5>
+			<p class="subtitle">Proteína Vegana a base de Chía y Nopal</p>
+            <p style="text-align:justify;">Nuestra proteína vegana, elaborada a base de chía y nopal, te brinda una fuente completa de proteína vegetal, fibra y omega-3. Ideal para después del ejercicio o como un snack saludable, desata tu potencial.</p>
+            <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#energiaPuraModal">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes\DescansoReparador.svg" alt="Descanso Reparador" class="img-fluid mb-3 rounded">
+            <h5>Descanso Reparador</h5>
+            <p class="subtitle">Magnesio y Melatonina</p>
+            <p style="text-align:justify;">¿Dificultad para conciliar el sueño o un descanso poco reparador? Descanso Reparador de IZLA combina magnesio y melatonina para ayudarte a relajarte y disfrutar de un sueño profundo y revitalizante.</p>
+			<button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#descansoReparadorModal">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- Llamado a la acción
+  <section class="py-5 text-white text-center" style="background-color:#64B14B;">
+    <div class="container">
+      <h2>¿Listo para transformar tu bienestar?</h2>
+      <p class="lead">Empieza hoy con nuestros suplementos 100% naturales.</p>
+      <a href="https://wa.me/2223020486" class="btn btn-light btn-lg mt-3">Comprar ahora</a>
+    </div>#64B14B
+  </section>-->
+  <section id="contacto" class="section-padding" style="background-color:#46992C;">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Contáctanos</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mb-4">
+                    <div class="contact-form" >
+						<p class="text-center mb-4 lead fw-bold" > 
+                        ¿Tienes preguntas, comentarios o quieres saber más sobre nuestros productos?
+						</p>
+						<p class="text-center mb-4 lead fw-bold" > 
+                        ¡Estamos aquí para ayudarte!
+						</p>
+						<p class="text-center lead"> 
+						<img src="imagenes\izla_logo.png" class="img-fluid" alt="IZLA" style="width:200px">
+						</p>
+						<div class="text-center lead">
+							<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-sm">Enviar Mensaje</a>
+                        </div>
+                        <div class="text-center mt-4 text-muted fw-bold" >
+                            <p>También puedes contactarnos directamente:</p>
+                            <p>Email: <a href="mailto:isajunatural@gmail.com" class="text-success">isajunatural@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark text-white text-center">
+    <div class="container">
+	  <p class="mb-3">&copy; <span id="currentYear"></span> IZLA. Todos los derechos reservados.</p>
+	  <div class="social-icons">
+        <a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.013 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.953H10.5c-.98 0-1.284.624-1.284 1.243v1.53h2.234l-.347 2.333H9.215v5.625C13.074 15.396 16 12.066 16 8.049z"/>
+		</svg></a>
+        <a href="#" class="mx-2">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+        </svg></a>
+      </div>
+    </div>
+  </footer>
+
+<!-- Modals for Product Details -->
+
+    <!-- Modal for Bienestar Diario -->
+    <div class="modal fade" id="bienestarDiarioModal" tabindex="-1" aria-labelledby="bienestarDiarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bienestarDiarioModalLabel" style="text-align:center" >Bienestar Diario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+				<br>
+                <div class="modal-body mb-4">
+					<p style="text-align:justify">Nuestra avanzada fórmula combina un espectro completo de vitaminas y minerales vitales, cuidadosamente seleccionados para apoyar tu energía diaria, fortalecer tu sistema inmunológico y optimizar las funciones metabólicas. </p>
+					<p style="text-align:justify">Además, hemos incorporado una potente mezcla de probióticos que promueven un equilibrio saludable en tu flora intestinal, mejorando la digestión y la absorción de nutrientes. Con solo dos cápsulas al día, sentirás una vitalidad renovada y un bienestar integral que te permitirá enfrentar cada desafío con confianza.</p>
+					<p style="text-align:justify">Ideal para compensar deficiencias nutricionales y mantener tu cuerpo en óptimas condiciones.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Energía Pura -->
+    <div class="modal fade" id="desengrasanteModal" tabindex="-1" aria-labelledby="desengrasanteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="desengrasanteModalLabel">JS-10</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+				<br>
+                <div class="modal-body">
+					<p style="text-align:justify">Desengrasante alcalino sin espuma, formulado para limpiar y desengrasar todo tipo de superficie a tratar como son: paredes, pisos, mesas de plástico, tuberías de plástico, maquina lava jaulas, salas de ordeña y/o equipos que no requieran espuma, entre otros.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Descanso Reparador -->
+    <div class="modal fade" id="descansoReparadorModal" tabindex="-1" aria-labelledby="descansoReparadorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="descansoReparadorModalLabel">Descanso Reparador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+				<br>
+                <div class="modal-body">
+                    <p style="text-align:justify">Diseñado para combatir el estrés y las noches inquietas, este suplemento combina la acción relajante del Magnesio con la Melatonina, la hormona natural del sueño. El Magnesio ayuda a relajar los músculos y el sistema nervioso, preparando tu cuerpo para el descanso. </p>
+					<p style="text-align:justify">La Melatonina, en su dosis precisa, contribuye a regular tu ciclo de sueño-vigilia, facilitando la conciliación del sueño y mejorando su calidad. Despierta cada mañana sintiéndote completamente renovado, con la mente clara y la energía lista para un nuevo día.</p>
+					<p style="text-align:justify">Es tu solución natural para noches tranquilas y mañanas llenas de vitalidad.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script>
+  // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close navbar toggler on click for small screens
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+                    navbarToggler.click();
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 80; // Adjust for fixed navbar height
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+		
+		// Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
