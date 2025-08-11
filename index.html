@@ -219,10 +219,46 @@
         align-items: center;
         text-align: center;
         border: 1px solid #e9ecef;
-		border: 1px solid #ddd;
-		border-radius: 8px;
-		padding: 20px;
-		transition: all 0.3s ease;
+		    border: 1px solid #ddd;
+		    border-radius: 8px;
+		    padding: 20px;
+		    transition: all 0.3s ease;
+    }
+
+    .product-card {
+      justify-content: space-between;
+      height: 100%; /* Hace que la tarjeta ocupe todo el alto disponible */
+    }
+
+    /* Homologar altura del título, subtítulo y descripción */
+    .product-card h5 {
+        min-height: 50px; /* Ajusta según el tamaño del texto */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-card .subtitle {
+        min-height: 40px; /* Ajusta según necesidad */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #075fe1;
+    }
+
+    .product-card p:not(.subtitle) {
+        min-height: 100px; /* Para que todas las descripciones midan lo mismo */
+        display: flex;
+        align-items: center;
+        text-align: justify;
+    }
+
+    /* Botón siempre al final */
+    .product-card button {
+        margin-top: auto;
+    }
+    .row.g-4 > [class*="col-"] {
+        display: flex;
     }
     .product-card:hover {
         transform: translateY(-5px);
@@ -252,6 +288,24 @@
         color: #6c757d;
         margin-bottom: 1.5rem;
     }
+	.whatsapp-float {
+	  position: fixed;
+	  bottom: 20px;
+	  right: 20px;
+	  z-index: 999;
+	  background-color: #25d366;
+	  border-radius: 50%;
+	  padding: 10px;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	  transition: transform 0.3s ease;
+	}
+	.whatsapp-float:hover {
+	  transform: scale(1.1);
+	}
+	.whatsapp-float img {
+	  width: 30px;
+	  height: 30px;
+	}
   </style>
 </head>
 <body>
@@ -299,14 +353,14 @@
       <div class="row text-center">
 		<div class="about-us-card">
           <h2 class="section-title">Misión</h2>
-          <p style="text-align: justify;">Transformar la vida de las personas a través de suplementos alimenticios puros y potentes, obtenidos de la naturaleza. Nos dedicamos a educar a nuestros consumidores sobre los beneficios de una nutrición consciente y a empoderarlos para tomar el control de su bienestar..</p>
+          <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cum, voluptas nesciunt officiis maiores sunt nostrum repellat tempore eveniet hic possimus vero illo, in, repellendus vitae facilis numquam saepe suscipit!</p>
         </div>
 
       </div>
 	  <div class="row text-center">
         <div class="about-us-card">
           <h2 class="section-title">Visión</h2>
-          <p style="text-align: justify;">Consolidarnos como la marca de suplementos alimenticios más confiable y de mayor calidad en el mercado, transformando la salud de nuestros consumidores a través de productos 100% naturales y científicamente respaldados.	</p>
+          <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos magnam totam ratione dolore impedit possimus maiores nam, molestiae assumenda rem nesciunt architecto dicta non, ex aliquid cumque sequi, nisi quo!	</p>
         </div>
       </div>
     </div>
@@ -326,37 +380,34 @@
             <img src="imagenes/iska_color.png" alt="JS-10" class="img-fluid mb-3 rounded" >
             <h5 class="subtitle">JS-10</h5>
             <p class="subtitle">Desengrasante alcalino sin espuma.</p>
-            <p style="text-align: justify;">Desengrasante alcalino sin espuma, formulado para limpiar y desengrasar todo tipo de superficie a tratar como son: paredes, pisos, mesas de plástico, tuberías de plástico, maquina lava jaulas, salas de ordeña y/o equipos que no requieran espuma, entre otros.</p>
+            <p style="text-align: justify;">Formulado para limpiar y desengrasar todo tipo de superficie a tratar como son: paredes, pisos, mesas de plástico, tuberías de plástico, maquina lava jaulas, salas de ordeña y/o equipos que no requieran espuma, entre otros.</p>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal">Ver Detalles</button>
           </div>
         </div>
-		<div class="col-md-4">
+		    <div class="col-md-4">
           <div class="product-card">
             <img src="imagenes/mr1000_plus.png" alt="MR-1000 PLUS" class="img-fluid mb-3 rounded" >
             <h5 class="subtitle">MR-1000 PLUS</h5>
             <p class="subtitle">Desinfectante alcalino</p>
-            <p style="text-align: justify;">Desinfectante alcalino clorado a base de clorógenos de alta calidad, estable con gran poder desinfectante y deorizante.Es altamente eficaz contra bacterias, algas, hongos y otros microorganismos peligrosos causantes de diferentes enfermedades.</p>
+            <p style="text-align: justify;">Clorado a base de clorógenos de alta calidad, estable con gran poder desinfectante y deorizante.Es altamente eficaz contra bacterias, algas, hongos y otros microorganismos peligrosos causantes de diferentes enfermedades.</p>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal">Ver Detalles</button>
           </div>
         </div>
-		<div class="col-md-4">
+		    <div class="col-md-4">
           <div class="product-card">
             <img src="imagenes/foam_flush.png" alt="FOAM FLUSH" class="img-fluid mb-3 rounded" >
             <h5 class="subtitle">FOAM FLUSH</h5>
             <p class="subtitle">Limpiador desengrasante</p>
-            <p style="text-align: justify;">Limpiador, desengrasante, desinfectante y deorizante, es biodegradable de amplio espectro germicida, no tóxico, no corrosivo, no irritante, no muta génico y no carcinogénico Limpia, desengrasa, desinfecta y deodoriza, todo en un solo paso sin necesidad de enjuagarse 	.</p>
+            <p style="text-align: justify;">Desinfectante y deorizante, biodegradable de amplio espectro germicida, no tóxico, no corrosivo, no irritante, no muta génico y no carcinogénico. Limpia, desengrasa, desinfecta y deodoriza, en un solo paso sin necesidad de enjuagarse.</p>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal">Ver Detalles</button>
           </div>
         </div>
-        <!-- Agrega más productos aquí -->
-      </div>
-	  <div class="row g-4 mb-4">
-        <div class="col-md-4">
+		    <div class="col-md-4">
           <div class="product-card">
             <img src="imagenes/iska_color.png" alt="MR-100 PLUS" class="img-fluid mb-3 rounded" >
             <h5 class="subtitle">MR-100 PLUS</h5>
             <p class="subtitle">Limpiador de alta concentración</p>
-            <!--<p style="text-align: justify;">Limpiador de alta concentración, biodegradable, diseñado para trabajar sobre equipos y superficies lisas o rígidas, de plástico y metálicas. Ayuda a prevenir el deterioro de estructuras y superficies metálicas a consecuencia del óxido y corrosión dejándolas con su apariencia.</p>-->
+            <p style="text-align: justify;">Limpiador de alta concentración, biodegradable, diseñado para trabajar sobre equipos y superficies lisas o rígidas, de plástico y metálicas. Ayuda a prevenir el deterioro de estructuras y superficies metálicas a consecuencia del óxido y corrosión dejándolas con su apariencia.</p>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desengrasanteModal1">Ver Detalles</button>
           </div>
         </div>
@@ -370,10 +421,28 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="product-card">
-            <img src="imagenes/iska_color.svg" alt="Desincrustante Pro" class="img-fluid mb-3 rounded">
-            <h5>Desincrustante Pro</h5>
+            <img src="imagenes/red_mu_1000.png" alt="RED MU-1000 PLUS" class="img-fluid mb-3 rounded">
+            <h5>RED MU-1000 PLUS</h5>
             <p class="subtitle">Elimina sarro y residuos minerales</p>
-            <p style="text-align: justify;">Ideal para superficies con acumulación de cal y sarro. Limpieza profunda y segura.</p>
+            <p style="text-align: justify;">Es un poderoso liquido desincrustante diseñado para remover y eliminar la incrustación (sarro, biofilms-algas) localizados en el interior de tinacos y líneas de bebederos.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desincrustanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/mu_plus_panel.png" alt="MU-1000 PLUS PANEL" class="img-fluid mb-3 rounded">
+            <h5>MU-1000 PLUS PANEL</h5>
+            <p class="subtitle">Eliminación de la incrustación</p>
+            <p style="text-align: justify;">Trabaja directamente en el exceso de Ca y Mg adheridos en equipos, utensilios y superficies del interior de las instalaciones pecuarias. Suaviza rápidamente la incrustación o sarro facilitando su eliminación al enjuagarse.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desincrustanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/mu_plus_cucharitas.png" alt="MU-1000 PLUS CUCHARITAS" class="img-fluid mb-3 rounded">
+            <h5>MU-1000 PLUS CUCHARITAS</h5>
+            <p class="subtitle">Eliminación de la incrustación</p>
+            <p style="text-align: justify;">Es un producto biodegradable, no toxico, no mutagénico, no carcinogénico, formulado para ser utilizado en granjas avícolas y porcícolas, como: cucharitas, líneas de bebederos, comederos, pisos, paredes, tuberías de pvc, entre otros.</p>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desincrustanteModal1">Ver Detalles</button>
           </div>
         </div>
@@ -386,10 +455,57 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="product-card">
-            <img src="imagenes/desinfectante1.svg" alt="Desinfectante Plus" class="img-fluid mb-3 rounded">
-            <h5>Desinfectante Plus</h5>
-            <p class="subtitle">Desinfección al 99.9%</p>
-            <p style="text-align: justify;">Elimina virus, bacterias y hongos en superficies de alto contacto. Seguro para uso doméstico e industrial.</p>
+            <img src="imagenes/gc_39.png" alt="GC-39" class="img-fluid mb-3 rounded">
+            <h5>GC-39</h5>
+            <p class="subtitle">Desinfectante</p>
+            <p style="text-align: justify;">Es un desinfectante de amplio espectro, formulado para la desinfección de instalaciones, equipos y mobiliario, eliminando virus, bacterias y hongos. Puede ser aplicado en cualquier superficie inerte como pisos, paredes, pasillos, jaulas, equipo, utensilios entre otros.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/satintlac_m325.png" alt="SATINTALC M-325" class="img-fluid mb-3 rounded">
+            <h5>SATINTALC M-325</h5>
+            <p class="subtitle">Desinfectante</p>
+            <p style="text-align: justify;">Es un producto desinfectante altamente activo, formulado para ser usado en la desinfección de manos, asi como al interior y exterior de casetas (superficies y cascarilla).</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/praf.png" alt="PRAF" class="img-fluid mb-3 rounded">
+            <h5>PRAF</h5>
+            <p class="subtitle">Polvo desinfectante, secante y deodorizante</p>
+            <p style="text-align: justify;">Formulado para ser usado como desinfectante, secante y deorizante, para eliminar la humedad de camas e instalaciones pecuarias en general, ayuda a eliminar la presencia de microorganismo a su vez erradicar olores no deseados.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/termo_smoke.png" alt="TERMO SMOKE" class="img-fluid mb-3 rounded">
+            <h5>TERMO SMOKE</h5>
+            <p class="subtitle">Desinfectante para termonebulizar</p>
+            <p style="text-align: justify;">Es un desinfectante a base de cuaternarios de amonio y glutaraldehido, se aplica por medio de termonebulización inhibiendo cargas microbianas en las áreas a desinfectar.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/img_no_disponible.jpg" alt="AC. LÁCTICO" class="img-fluid mb-3 rounded">
+            <h5>AC. LÁCTICO</h5>
+            <p class="subtitle">Conservador/Ant.</p>
+            <p style="text-align: justify;">Es un producto con grado alimenticio regulador del pH, evita la proliferación de bacterias, retardando el ciclo de la oxidación y reacciones que generan oscurecimiento.</p>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="imagenes/i_0310.png" alt="I-0310" class="img-fluid mb-3 rounded">
+            <h5>I-0310</h5>
+            <p class="subtitle">Desinfectante</p>
+            <p style="text-align: justify;">Formulado para ser utilizado como desinfectante en: Arcos sanitarios, vados sanitarios, rastros, empacadoras, fábricas de alimentos balanceados. Granjas avícolas: Casetas,Incubadoras. Granjas porcícolas: Maternidad destete, engorda, área de calor.</p>
             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#desinfectanteModal1">Ver Detalles</button>
           </div>
         </div>
@@ -444,7 +560,7 @@
       <a href="https://wa.me/2223020486" class="btn btn-light btn-lg mt-3">Comprar ahora</a>
     </div>#64B14B
   </section>-->
-  <section id="contacto" class="section-padding" style="background-color:#46992C;">
+  <section id="contacto" class="section-padding bg-light" >
         <div class="container">
             <h2 class="text-center mb-5 display-5 fw-bold">Contáctanos</h2>
             <div class="row justify-content-center">
@@ -456,7 +572,7 @@
 						<p class="text-center mb-4 lead fw-bold" > 
                         ¡Estamos aquí para ayudarte!
 						</p>
-						<p class="text-center lead"> 
+						<p class="text-center lead" style="font-size: xx-large !important;"> 
 						<img src="imagenes\izla_logo.png" class="img-fluid" alt="IZLA" style="width:200px">
 						</p>
 						<div class="text-center lead">
@@ -490,6 +606,12 @@
 <!-- Modals for Product Details -->
 
     <!-- Modal for Bienestar Diario -->
+	<a href="https://wa.me/522223020486" 
+	   class="whatsapp-float" 
+	   target="_blank" 
+	   aria-label="Contáctanos por WhatsApp">
+	  <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" />
+	</a>
     <div class="modal fade" id="bienestarDiarioModal" tabindex="-1" aria-labelledby="bienestarDiarioModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
